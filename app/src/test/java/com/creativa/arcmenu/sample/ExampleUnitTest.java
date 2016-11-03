@@ -1,4 +1,4 @@
-package com.capricorn;
+package com.creativa.arcmenu.sample;
 
 import org.junit.Test;
 

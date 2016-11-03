@@ -18,6 +18,7 @@ package com.creativa.arcmenu;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -83,6 +84,8 @@ public class ArcMenu extends RelativeLayout {
     private void applyAttrs(AttributeSet attrs) {
         if (attrs != null) {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ArcLayout, 0, 0);
+            int menuIcon = a.getResourceId(R.styleable.ArcMenu_menuIcon,R.drawable.composer_button);
+            mHintView.setImageResource(menuIcon);
 
             float fromDegrees = a.getFloat(R.styleable.ArcLayout_fromDegrees, ArcLayout.DEFAULT_FROM_DEGREES);
             float toDegrees = a.getFloat(R.styleable.ArcLayout_toDegrees, ArcLayout.DEFAULT_TO_DEGREES);
@@ -91,6 +94,8 @@ public class ArcMenu extends RelativeLayout {
             int defaultChildSize = mArcLayout.getChildSize();
             int newChildSize = a.getDimensionPixelSize(R.styleable.ArcLayout_childSize, defaultChildSize);
             mArcLayout.setChildSize(newChildSize);
+
+
 
             a.recycle();
         }
